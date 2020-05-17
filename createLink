@@ -1,0 +1,32 @@
+<?php
+$link = "[link]https://www.youtube.com/[/link]";
+$length = strlen($link);
+$length = (int)$length;
+$len = $length - 8;
+for ($i = 0; $i < $length; $i++){
+    if($link[0]==="[" && $link[5]==="]"){
+        if($i >= $len){
+            if($link[$i]==="["){
+                $s = $i;
+                
+                
+            }
+            if($link[$i]==="]")
+            {
+                $start = $s+2;
+                $end = $i-1;
+            }
+        }
+    }
+}
+$checked = "";
+$links = "";
+for($i = $start; $i <= $end; $i++){
+    $checked .= $link[$i];
+}
+for($i = 6; $i < $s; $i++){
+    $links .= $link[$i];
+}
+if($checked == "link"){
+    echo "<a href='".$links."'>".$links."</a>";
+}
